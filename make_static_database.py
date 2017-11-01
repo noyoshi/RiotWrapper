@@ -20,19 +20,21 @@ region = "na1"
 ext = "lol/static-data/v3/champions?locale=en_US&tags=spells&dataById=false"
 url = "https://{region}.api.riotgames.com/{ext}".format(region=region, ext=ext)
 data = requests.get(url, headers=headers)
-json_data = data.json()
+json_data = data.json()["data"]
 champ_names = []
 for champ in json_data:
     if champ == "MonkeyKind": # Why is he still called this smh
         champ = "Wukong"
-    champ_names.append(champ)
+    champ_names.append(champ.encode("utf-8"))
 champ_names.sort() # Sort champ names alphabetically
 
 database = {}
 
 for name in champ_names:
     print json_data[name]["id"]
-    database[name] = classes.champion(name, son_data[name]["id"],
+    database[name] = classes.champion(name, json_data[name]["id"],
             json_data[name]["spells"])
+            # spells is a list of spells, not including passive
+            # id is thier champ id numberfor t
 for thing in database:
     print thing

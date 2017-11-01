@@ -23,6 +23,14 @@ class champion(object): # To store one champion
     def get_stats(self):
         return stats
 
+class spell(object): # To store spells
+    def __init__(self, key, name, cooldown, sanitized_tooltip,):
+        self.key = key.encode("utf-8")
+        self.name = name.encode("utf-8")
+        self.cooldown = cooldown # list
+        self.sanitized_tooltip = sanitized_tooltip.encode("utf-8")
+
+
 class item(object): # To store one item
     def __init__(self):
         pass
