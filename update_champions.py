@@ -7,6 +7,7 @@
 
 import GET_TOKEN as _token
 import requests
+import classes 
 
 API_KEY = _token.GET_KEY()
 
@@ -25,10 +26,10 @@ url = "https://{region}.api.riotgames.com/{ext}".format(region=region, ext=ext)
 data = requests.get(url, headers=headers)
 json_data = data.json()
 champ_names = []
-for champion in json_data:
-    if champion == "MonkeyKind": # Why is he still called this smh
-        champion = "Wukong"
-    champ_names.append(champion)
+for champ in json_data:
+    if champ == "MonkeyKind": # Why is he still called this smh
+        champ = "Wukong"
+    champ_names.append(champ)
 champ_namess.sort() # Sort champ names alphabetically
 
 
