@@ -4,5 +4,7 @@ A Python Riot Games API wrapper.
 
 TODO
 ---
-- [ ] Get SQL server working for static-data
+- [ ] Get data abstractions complete using unique classes for all objects
+- [ ] Standardize retrieving static data for end user convenience 
+- [ ] Get SQL database working for static-data
 - [ ] Get it working
